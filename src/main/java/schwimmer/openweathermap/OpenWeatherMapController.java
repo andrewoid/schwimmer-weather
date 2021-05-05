@@ -3,10 +3,15 @@ package schwimmer.openweathermap;
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import javafx.application.Platform;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 
 public class OpenWeatherMapController {
 
     private final OpenWeatherMapService service;
+
+    @FXML
+    Label temperature;
 
     public OpenWeatherMapController(OpenWeatherMapService service) {
         this.service = service;
@@ -27,6 +32,7 @@ public class OpenWeatherMapController {
 
     private void onCurrentWeatherRunLater(OpenWeatherMapFeed openWeatherMapFeed) {
         // Update your TextFields
+        temperature.setText(String.valueOf(openWeatherMapFeed.main.temp));
     }
 
     private void onError(Throwable throwable) {
