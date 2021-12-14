@@ -6,6 +6,8 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
+import javax.inject.Inject;
+
 public class OpenWeatherMapController {
 
     private final OpenWeatherMapService service;
@@ -13,6 +15,7 @@ public class OpenWeatherMapController {
     @FXML
     Label temperature;
 
+    @Inject
     public OpenWeatherMapController(OpenWeatherMapService service) {
         this.service = service;
     }
